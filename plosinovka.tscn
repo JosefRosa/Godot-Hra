@@ -1,0 +1,516 @@
+[gd_scene load_steps=37 format=2]
+
+[ext_resource path="res://KinematicBody2D.gd" type="Script" id=1]
+[ext_resource path="res://free_flat_tileset/PNG/Tile_11.png" type="Texture" id=2]
+[ext_resource path="res://Jumping Boy Sprites/Transparent PNG/standing/frame-1.png" type="Texture" id=3]
+[ext_resource path="res://Jumping Boy Sprites/Transparent PNG/standing/frame-2.png" type="Texture" id=4]
+[ext_resource path="res://Jumping Boy Sprites/Transparent PNG/running/frame-4.png" type="Texture" id=5]
+[ext_resource path="res://Jumping Boy Sprites/Transparent PNG/running/frame-3.png" type="Texture" id=6]
+[ext_resource path="res://Jumping Boy Sprites/Transparent PNG/running/frame-6.png" type="Texture" id=7]
+[ext_resource path="res://Jumping Boy Sprites/Transparent PNG/running/frame-5.png" type="Texture" id=8]
+[ext_resource path="res://Jumping Boy Sprites/Transparent PNG/running/frame-2.png" type="Texture" id=9]
+[ext_resource path="res://Jumping Boy Sprites/Transparent PNG/running/frame-1.png" type="Texture" id=10]
+[ext_resource path="res://Jumping Boy Sprites/Transparent PNG/jump/jump_fall.png" type="Texture" id=11]
+[ext_resource path="res://Jumping Boy Sprites/Transparent PNG/jump/jump_up.png" type="Texture" id=12]
+[ext_resource path="res://sound jumping/jump_07.wav" type="AudioStream" id=13]
+[ext_resource path="res://background music/Space Jazz.mp3" type="AudioStream" id=14]
+[ext_resource path="res://Backgrounds - FREE/Background 01/PARALLAX/layer_01_1920 x 1080.png" type="Texture" id=15]
+[ext_resource path="res://Backgrounds - FREE/Background 01/PARALLAX/layer_05_1920 x 1080.png" type="Texture" id=16]
+[ext_resource path="res://Backgrounds - FREE/Background 01/PARALLAX/layer_04_1920 x 1080.png" type="Texture" id=17]
+[ext_resource path="res://Backgrounds - FREE/Background 01/PARALLAX/layer_02_1920 x 1080.png" type="Texture" id=18]
+[ext_resource path="res://Backgrounds - FREE/Background 01/PARALLAX/layer_03_1920 x 1080.png" type="Texture" id=19]
+[ext_resource path="res://Enemak.tscn" type="PackedScene" id=20]
+[ext_resource path="res://Coin.tscn" type="PackedScene" id=21]
+[ext_resource path="res://HUD.tscn" type="PackedScene" id=22]
+
+[sub_resource type="SpriteFrames" id=4]
+animations = [ {
+"frames": [ ExtResource( 11 ) ],
+"loop": true,
+"name": "Fall",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 3 ), ExtResource( 4 ) ],
+"loop": true,
+"name": "Idle",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 12 ) ],
+"loop": true,
+"name": "Jump",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 10 ), ExtResource( 9 ), ExtResource( 6 ), ExtResource( 5 ), ExtResource( 8 ), ExtResource( 7 ) ],
+"loop": true,
+"name": "Run",
+"speed": 7.0
+} ]
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 23, 34 )
+
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 158.25, 24.5 )
+
+[sub_resource type="RectangleShape2D" id=5]
+extents = Vector2( 3813.5, 31.5 )
+
+[sub_resource type="RectangleShape2D" id=6]
+extents = Vector2( 122.5, 22.5 )
+
+[sub_resource type="RectangleShape2D" id=7]
+extents = Vector2( 122.5, 22.5 )
+
+[sub_resource type="RectangleShape2D" id=8]
+extents = Vector2( 122.5, 22.5 )
+
+[sub_resource type="GDScript" id=9]
+script/source = "extends Node2D
+
+
+func _on_Area2D_area_entered(area):
+	area.queue_free()
+	$AudioStreamPlayer.play()
+	$Container/Sprite.visible = false
+	$AnimationPlayer.stop()
+	$Container/Particles2D.emitting = true
+	$Timer.start()
+
+
+func _on_Timer_timeout():
+	queue_free()
+"
+
+[sub_resource type="GDScript" id=10]
+script/source = "extends Node2D
+
+
+func _on_Area2D_area_entered(area):
+	area.queue_free()
+	$AudioStreamPlayer.play()
+	$Container/Sprite.visible = false
+	$AnimationPlayer.stop()
+	$Container/Particles2D.emitting = true
+	$Timer.start()
+
+
+func _on_Timer_timeout():
+	queue_free()
+"
+
+[sub_resource type="GDScript" id=11]
+script/source = "extends Node2D
+
+
+func _on_Area2D_area_entered(area):
+	area.queue_free()
+	$AudioStreamPlayer.play()
+	$Container/Sprite.visible = false
+	$AnimationPlayer.stop()
+	$Container/Particles2D.emitting = true
+	$Timer.start()
+
+
+func _on_Timer_timeout():
+	queue_free()
+"
+
+[sub_resource type="GDScript" id=12]
+script/source = "extends Node2D
+
+
+func _on_Area2D_area_entered(area):
+	area.queue_free()
+	$AudioStreamPlayer.play()
+	$Container/Sprite.visible = false
+	$AnimationPlayer.stop()
+	$Container/Particles2D.emitting = true
+	$Timer.start()
+
+
+func _on_Timer_timeout():
+	queue_free()
+"
+
+[sub_resource type="GDScript" id=13]
+script/source = "extends Node2D
+
+
+func _on_Area2D_area_entered(area):
+	area.queue_free()
+	$AudioStreamPlayer.play()
+	$Container/Sprite.visible = false
+	$AnimationPlayer.stop()
+	$Container/Particles2D.emitting = true
+	$Timer.start()
+
+
+func _on_Timer_timeout():
+	queue_free()
+"
+
+[sub_resource type="GDScript" id=14]
+script/source = "extends Node2D
+
+
+func _on_Area2D_area_entered(area):
+	area.queue_free()
+	$AudioStreamPlayer.play()
+	$Container/Sprite.visible = false
+	$AnimationPlayer.stop()
+	$Container/Particles2D.emitting = true
+	$Timer.start()
+
+
+func _on_Timer_timeout():
+	queue_free()
+"
+
+[sub_resource type="GDScript" id=15]
+script/source = "extends Node2D
+
+
+func _on_Area2D_area_entered(area):
+	area.queue_free()
+	$AudioStreamPlayer.play()
+	$Container/Sprite.visible = false
+	$AnimationPlayer.stop()
+	$Container/Particles2D.emitting = true
+	$Timer.start()
+
+
+func _on_Timer_timeout():
+	queue_free()
+"
+
+[node name="plosinovka" type="Node2D"]
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+offset = Vector2( 0, 200 )
+transform = Transform2D( 1, 0, 0, 1, 0, 200 )
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2( 0.2, 0.2 )
+motion_mirroring = Vector2( 3840, 0 )
+
+[node name="Sprite" type="Sprite" parent="ParallaxBackground/ParallaxLayer"]
+position = Vector2( -4, -3 )
+texture = ExtResource( 15 )
+region_enabled = true
+region_rect = Rect2( 0, 0, 3840, 1080 )
+
+[node name="ParallaxLayer2" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2( 0.4, 0.4 )
+motion_mirroring = Vector2( 3840, 0 )
+
+[node name="Sprite" type="Sprite" parent="ParallaxBackground/ParallaxLayer2"]
+position = Vector2( 4, 3 )
+texture = ExtResource( 18 )
+region_enabled = true
+region_rect = Rect2( 0, 0, 3840, 1080 )
+
+[node name="ParallaxLayer3" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2( 0.6, 0.6 )
+motion_mirroring = Vector2( 3840, 0 )
+
+[node name="Sprite" type="Sprite" parent="ParallaxBackground/ParallaxLayer3"]
+position = Vector2( -1, 0 )
+texture = ExtResource( 19 )
+region_enabled = true
+region_rect = Rect2( 0, 0, 3840, 1080 )
+
+[node name="ParallaxLayer4" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2( 0.8, 0.8 )
+motion_mirroring = Vector2( 3840, 0 )
+
+[node name="Sprite" type="Sprite" parent="ParallaxBackground/ParallaxLayer4"]
+position = Vector2( -1, 0 )
+texture = ExtResource( 17 )
+region_enabled = true
+region_rect = Rect2( 0, 0, 3840, 1080 )
+
+[node name="ParallaxLayer5" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_mirroring = Vector2( 3840, 0 )
+
+[node name="Sprite" type="Sprite" parent="ParallaxBackground/ParallaxLayer5"]
+position = Vector2( -1, 0 )
+texture = ExtResource( 16 )
+region_enabled = true
+region_rect = Rect2( 0, 0, 3840, 1080 )
+
+[node name="Hrac" type="KinematicBody2D" parent="."]
+position = Vector2( 291, 367 )
+script = ExtResource( 1 )
+rychlost = 300
+
+[node name="Animak" type="AnimatedSprite" parent="Hrac"]
+scale = Vector2( 0.1, 0.1 )
+frames = SubResource( 4 )
+animation = "Idle"
+frame = 1
+playing = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hrac"]
+position = Vector2( 1, 2 )
+shape = SubResource( 2 )
+
+[node name="Camera2D" type="Camera2D" parent="Hrac"]
+current = true
+limit_top = -343
+limit_bottom = 740
+smoothing_enabled = true
+drag_margin_left = 0.0
+drag_margin_top = 0.0
+drag_margin_right = 0.0
+drag_margin_bottom = 0.0
+
+[node name="Vyskok" type="AudioStreamPlayer" parent="Hrac"]
+stream = ExtResource( 13 )
+volume_db = -34.958
+pitch_scale = 0.7
+
+[node name="hazenip" type="Position2D" parent="Hrac"]
+position = Vector2( 6, 21 )
+
+[node name="hazenil" type="Position2D" parent="Hrac"]
+position = Vector2( -6, 21 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2( 262, 456 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="StaticBody2D"]
+position = Vector2( -5.72205e-06, -20.5 )
+scale = Vector2( 1.22656, 0.363281 )
+texture = ExtResource( 2 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2( 0, -0.5 )
+shape = SubResource( 3 )
+
+[node name="StaticBody2D7" type="StaticBody2D" parent="."]
+position = Vector2( 1408, 579 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="StaticBody2D7"]
+position = Vector2( -5.72205e-06, -20.5 )
+scale = Vector2( 1.22656, 0.363281 )
+texture = ExtResource( 2 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D7"]
+position = Vector2( 0, -0.5 )
+shape = SubResource( 3 )
+
+[node name="StaticBody2D8" type="StaticBody2D" parent="."]
+position = Vector2( 1442, 331 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="StaticBody2D8"]
+position = Vector2( -5.72205e-06, -20.5 )
+scale = Vector2( 1.22656, 0.363281 )
+texture = ExtResource( 2 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D8"]
+position = Vector2( 0, -0.5 )
+shape = SubResource( 3 )
+
+[node name="StaticBody2D9" type="StaticBody2D" parent="."]
+position = Vector2( 1011, 256 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="StaticBody2D9"]
+position = Vector2( -5.72205e-06, -20.5 )
+scale = Vector2( 1.22656, 0.363281 )
+texture = ExtResource( 2 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D9"]
+position = Vector2( 0, -0.5 )
+shape = SubResource( 3 )
+
+[node name="StaticBody2D10" type="StaticBody2D" parent="."]
+position = Vector2( 1836, 535 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="StaticBody2D10"]
+position = Vector2( -5.72205e-06, -20.5 )
+scale = Vector2( 1.22656, 0.363281 )
+texture = ExtResource( 2 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D10"]
+position = Vector2( 0, -0.5 )
+shape = SubResource( 3 )
+
+[node name="StaticBody2D11" type="StaticBody2D" parent="."]
+position = Vector2( 2266, 421 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="StaticBody2D11"]
+position = Vector2( -5.72205e-06, -20.5 )
+scale = Vector2( 1.22656, 0.363281 )
+texture = ExtResource( 2 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D11"]
+position = Vector2( 0, -0.5 )
+shape = SubResource( 3 )
+
+[node name="StaticBody2D12" type="StaticBody2D" parent="."]
+position = Vector2( 2193, 645 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="StaticBody2D12"]
+position = Vector2( -5.72205e-06, -20.5 )
+scale = Vector2( 1.22656, 0.363281 )
+texture = ExtResource( 2 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D12"]
+position = Vector2( 0, -0.5 )
+shape = SubResource( 3 )
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="."]
+position = Vector2( 749, 563 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="StaticBody2D2"]
+position = Vector2( -5.72205e-06, -9.99998 )
+scale = Vector2( 1.22656, 0.320313 )
+texture = ExtResource( 2 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2"]
+position = Vector2( 0, 6.5 )
+shape = SubResource( 3 )
+
+[node name="StaticBody2D3" type="StaticBody2D" parent="."]
+position = Vector2( 690, 772 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="StaticBody2D3"]
+position = Vector2( 1184.5, -24.5 )
+scale = Vector2( 29.7695, 0.433594 )
+texture = ExtResource( 2 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D3"]
+position = Vector2( 1188.5, -1.5 )
+shape = SubResource( 5 )
+
+[node name="StaticBody2D4" type="StaticBody2D" parent="."]
+position = Vector2( 340, 614 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="StaticBody2D4"]
+position = Vector2( 0, 16.75 )
+scale = Vector2( 0.957027, 0.302734 )
+texture = ExtResource( 2 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D4"]
+position = Vector2( 0.5, 32.5 )
+shape = SubResource( 6 )
+
+[node name="StaticBody2D5" type="StaticBody2D" parent="."]
+position = Vector2( -41, 319 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="StaticBody2D5"]
+position = Vector2( 0, 16.75 )
+scale = Vector2( 0.957027, 0.302734 )
+texture = ExtResource( 2 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D5"]
+position = Vector2( 0.5, 32.5 )
+shape = SubResource( 7 )
+
+[node name="StaticBody2D6" type="StaticBody2D" parent="."]
+position = Vector2( 710, 342 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="StaticBody2D6"]
+position = Vector2( 0, 16.75 )
+scale = Vector2( 0.957027, 0.302734 )
+texture = ExtResource( 2 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D6"]
+position = Vector2( 0.5, 32.5 )
+shape = SubResource( 8 )
+
+[node name="background" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 14 )
+volume_db = -34.958
+pitch_scale = 0.8
+autoplay = true
+
+[node name="Hody" type="Node" parent="."]
+
+[node name="Enemak" parent="." instance=ExtResource( 20 )]
+position = Vector2( 766, 320 )
+script = SubResource( 9 )
+
+[node name="Enemak2" parent="." instance=ExtResource( 20 )]
+position = Vector2( -58, 287 )
+script = SubResource( 10 )
+
+[node name="Enemak3" parent="." instance=ExtResource( 20 )]
+position = Vector2( 1129, 699 )
+script = SubResource( 11 )
+
+[node name="Enemak4" parent="." instance=ExtResource( 20 )]
+position = Vector2( -163, 694 )
+script = SubResource( 12 )
+
+[node name="Enemak5" parent="." instance=ExtResource( 20 )]
+position = Vector2( 2271, 349 )
+script = SubResource( 13 )
+
+[node name="Enemak6" parent="." instance=ExtResource( 20 )]
+position = Vector2( 1984, 693 )
+script = SubResource( 14 )
+
+[node name="Enemak7" parent="." instance=ExtResource( 20 )]
+position = Vector2( 2400, 693 )
+script = SubResource( 15 )
+
+[node name="Coin" parent="." instance=ExtResource( 21 )]
+position = Vector2( 1440, 286 )
+
+[node name="Coin2" parent="." instance=ExtResource( 21 )]
+position = Vector2( 2359, 371 )
+
+[node name="Coin3" parent="." instance=ExtResource( 21 )]
+position = Vector2( -126, 308 )
+
+[node name="Coin4" parent="." instance=ExtResource( 21 )]
+position = Vector2( 335, 723 )
+
+[node name="Coin5" parent="." instance=ExtResource( 21 )]
+position = Vector2( 2191, 714 )
+
+[node name="HUD" parent="." instance=ExtResource( 22 )]
+
+[connection signal="body_entered" from="Coin" to="Hrac" method="_on_Coin_body_entered"]
+[connection signal="body_entered" from="Coin" to="HUD" method="_on_Coin_body_entered"]
+[connection signal="body_entered" from="Coin2" to="HUD" method="_on_Coin_body_entered"]
+[connection signal="body_entered" from="Coin3" to="HUD" method="_on_Coin_body_entered"]
+[connection signal="body_entered" from="Coin4" to="HUD" method="_on_Coin_body_entered"]
+[connection signal="body_entered" from="Coin5" to="HUD" method="_on_Coin_body_entered"]

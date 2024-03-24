@@ -1,0 +1,98 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://Enemy/red_slime.png" type="Texture" id=1]
+[ext_resource path="res://Enemak.gd" type="Script" id=2]
+[ext_resource path="res://explosions/explosion_1.wav" type="AudioStream" id=3]
+
+[sub_resource type="Gradient" id=1]
+colors = PoolColorArray( 0.960449, 0.335529, 0.0262623, 1, 0.339355, 0.0185585, 0.0185585, 1 )
+
+[sub_resource type="GradientTexture" id=2]
+gradient = SubResource( 1 )
+
+[sub_resource type="ParticlesMaterial" id=3]
+flag_disable_z = true
+spread = 180.0
+gravity = Vector3( 0, 0, 0 )
+initial_velocity = 126.0
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+scale = 10.0
+scale_random = 1.0
+color_ramp = SubResource( 2 )
+
+[sub_resource type="Animation" id=4]
+length = 2.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("Container:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 2 ),
+"transitions": PoolRealArray( 0.406126, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ), Vector2( 0, 0 ) ]
+}
+
+[sub_resource type="Animation" id=5]
+resource_name = "poskok"
+length = 2.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Container:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 0.307786, 2.07053 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ), Vector2( 0, -250 ) ]
+}
+
+[node name="Enemak" type="Node2D"]
+script = ExtResource( 2 )
+
+[node name="Container" type="Node2D" parent="."]
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="Container"]
+scale = Vector2( 2.5, 2.5 )
+texture = ExtResource( 1 )
+hframes = 5
+
+[node name="Area2D" type="Area2D" parent="Container"]
+position = Vector2( -21, -75 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Container/Area2D"]
+position = Vector2( 23, 76 )
+polygon = PoolVector2Array( -3, -36.3152, 20, -32.3152, 21, -33.3152, 31, -18.3152, 37, 35.6848, -40, 36.6848, -34, -19.3152, -24, -31.3152 )
+
+[node name="Particles2D" type="Particles2D" parent="Container"]
+position = Vector2( -1, 0 )
+emitting = false
+amount = 20
+one_shot = true
+speed_scale = 1.5
+explosiveness = 1.0
+process_material = SubResource( 3 )
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 3 )
+volume_db = -33.696
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "poskok"
+anims/RESET = SubResource( 4 )
+anims/poskok = SubResource( 5 )
+
+[connection signal="area_entered" from="Container/Area2D" to="." method="_on_Area2D_area_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
