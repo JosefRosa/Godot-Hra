@@ -25,5 +25,5 @@ Tato hra vyžaduje následující systémové požadavky:
 Pokud máte návrhy na vylepšení hry nebo narazíte na chyby, rádi je přijmeme. Pro podání příspěvků nebo zpětné vazby nás kontaktujte na [email] nebo vytvořte větev (branch) a pošlete nám požadované změny.
 
 ## Autor
-Tuto hru vyvinul Filip Kucer a Josef Rosa.
+Tuto hru vyvinul Rosa Josef a Filip Kucer
 
