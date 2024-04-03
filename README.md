@@ -2,8 +2,10 @@
 
 ## Popis
 - Předem upozorňuji že hra vám nebude fungovat pokud máte novou verzi godotu. Musíte mít verzi 3.5
-- Název hry je Panáček Bilbo. Jedná se o klasickou 2D hru v níž se snažíte přežít a zabít co nejvíce NPC a sebrat coiny, které levitují na různých místech. 
-- Tato hra je inspirována například hrou Mario. 
+- Název hry je Panáček Bilbo. Jedná se o klasickou 2D hru v níž se snažíte přežít a zabít co nejvíce NPC a sebrat coiny, které levitují na různých místech
+- Ve hře můžete najít NPC postavy které zatím jenom skáčou. NPC postavám chceme dále přidat střelbu.
+- Tato hra je inspirována například hrou Mario
+  
 
 ![Snímek obrazovky (169)](https://github.com/JosefRosa/Godot-Hra/assets/76937639/2cbeb950-258e-4bdf-aa81-ea22ce0c740f)
 
@@ -13,7 +15,6 @@ Pro ovládání hry použijte následující klávesy nebo ovládací prvky:
 - Klávesa W - Skok
 - Klávesa A - Pohyb doleva
 - Klávesa D - Pohyb doprava
-- Myš - Pohyb kamery
 - Klávesa F - střelba
 
 Na obrázku níže můžete vidět zdrojový kód pohybu postavičky
