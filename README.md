@@ -1,9 +1,9 @@
 # Godot-Hra
 
 ## Popis
--Předem upozorňuji že hra vám nebude fungovat pokud máte novou verzi godotu. Musíte mít verzi 3.5
--Název hry je Panáček Bilbo. Jedná se o klasickou 2D hru v níž se snažíte přežít a zabít co nejvíce NPC a sebrat coiny, které levitují na různých místech. 
--Tato hra je inspirována například hrou Mario. 
+- Předem upozorňuji že hra vám nebude fungovat pokud máte novou verzi godotu. Musíte mít verzi 3.5
+- Název hry je Panáček Bilbo. Jedná se o klasickou 2D hru v níž se snažíte přežít a zabít co nejvíce NPC a sebrat coiny, které levitují na různých místech. 
+- Tato hra je inspirována například hrou Mario. 
 
 ![Snímek obrazovky (169)](https://github.com/JosefRosa/Godot-Hra/assets/76937639/2cbeb950-258e-4bdf-aa81-ea22ce0c740f)
 
